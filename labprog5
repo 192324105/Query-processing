@@ -1,0 +1,18 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df_stock = pd.read_csv('alphabet_stock_data.csv')
+df_stock['Date'] = pd.to_datetime(df_stock['Date'])
+df_stock.set_index('Date', inplace=True)
+
+volume_range = df_stock.loc['2020-04-01':'2020-04-30']
+
+plt.figure(figsize=(12, 5))
+plt.bar(volume_range.index.strftime('%Y-%m-%d'), volume_range['Volume'], color='royalblue', width=0.6)
+plt.title('Alphabet Inc. Trading Volume (2020-04-01 to 2020-04-30)')
+plt.xlabel('Date')
+plt.ylabel('Trading Volume')
+plt.xticks(rotation=45, ha='right')
+plt.grid(axis='y', linestyle='--', alpha=0.6)
+plt.tight_layout()
+plt.show()

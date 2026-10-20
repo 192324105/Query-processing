@@ -1,0 +1,5 @@
+import pandas as pd
+
+df_jobs = pd.read_csv('jobs.csv')
+sorted_jobs = df_jobs.sort_values(by='job_title', ascending=False)
+print(sorted_jobs)

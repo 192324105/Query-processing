@@ -1,0 +1,13 @@
+import pandas as pd
+
+
+df_job_history = pd.read_csv('job_history.csv')
+
+
+job_counts = df_job_history['employee_id'].value_counts()
+
+
+result = job_counts[job_counts >= 2].index.tolist()
+
+print("IDs of employees who have done two or more jobs in the past:")
+print(result)
